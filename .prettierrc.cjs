@@ -1,11 +1,11 @@
 const config = {
-  endOfLine: "auto",
+  endOfLine: 'auto',
   semi: true,
   singleQuote: true,
   tabWidth: 2,
-  trailingComma: "es5",
+  trailingComma: 'es5',
   printWidth: 80,
-  arrowParens: "always",
+  arrowParens: 'always',
 };
 
 module.exports = config;
