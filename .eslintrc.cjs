@@ -42,6 +42,9 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-shadow': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'react/function-component-definition': 'off',
+    'import/prefer-default-export': 'off',
+    '@typescript-eslint/no-useless-constructor': 'off',
   },
   settings: {
     react: {
