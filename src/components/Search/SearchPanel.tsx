@@ -4,11 +4,13 @@ import classes from './SearchPanel.module.scss';
 interface IProps {
   searchText: string;
   setSearchText: (searchText: string) => void;
+  startSearch: () => void;
 }
 
 class SearchPanel extends Component<IProps> {
   constructor(props: IProps) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +21,11 @@ class SearchPanel extends Component<IProps> {
   componentWillUnmount() {
     this.setSearchText();
     window.removeEventListener('beforeunload', this.setSearchText);
+  }
+
+  handleClick() {
+    const { startSearch } = this.props;
+    startSearch();
   }
 
   setSearchText = () => {
@@ -47,7 +54,11 @@ class SearchPanel extends Component<IProps> {
             setSearchText(e.target.value);
           }}
         />
-        <button className={classes.search__button} type="button">
+        <button
+          className={classes.search__button}
+          type="button"
+          onClick={this.handleClick}
+        >
           Search
         </button>
       </div>

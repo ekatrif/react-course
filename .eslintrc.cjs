@@ -45,6 +45,7 @@ module.exports = {
     'react/function-component-definition': 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/no-useless-constructor': 'off',
+    'react/prefer-stateless-function': 'off',
   },
   settings: {
     react: {

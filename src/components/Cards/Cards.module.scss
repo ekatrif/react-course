@@ -1,0 +1,11 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1em;
+  list-style-type: none;
+
+  & > li {
+    border-bottom: 1px solid lightblue;
+  }
+}

@@ -1,15 +1,39 @@
 import { Component } from 'react';
 import './App.scss';
 import SearchPanel from './components/Search/SearchPanel';
+import Cards from './components/Cards/Cards';
+import { ICard } from './components/Card/Card';
 
 interface IState {
   searchText: string;
+  cards: ICard[];
 }
 
-class App extends Component<Record<string, never>, IState> {
-  constructor(props: Record<string, never>) {
+enum Endpoints {
+  SEARCH_PLANETS = 'https://swapi.dev/api/planets/?search=',
+}
+
+class App extends Component<Record<string, ICard[] | never>, IState> {
+  constructor(props: Record<string, ICard[] | never>) {
     super(props);
-    this.state = { searchText: '' };
+    this.state = {
+      searchText: localStorage.getItem('searchText') || '',
+      cards: [],
+    };
+    this.fetchCards = this.fetchCards.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchCards();
+  }
+
+  fetchCards() {
+    const { searchText } = this.state;
+    fetch(Endpoints.SEARCH_PLANETS + searchText)
+      .then((response) => response.json())
+      .then((cards) => {
+        this.setState({ cards: cards.results });
+      });
   }
 
   changeSearchText(searchText: string) {
@@ -17,7 +41,7 @@ class App extends Component<Record<string, never>, IState> {
   }
 
   render() {
-    const { searchText } = this.state;
+    const { searchText, cards } = this.state;
     return (
       <>
         <header>
@@ -26,9 +50,12 @@ class App extends Component<Record<string, never>, IState> {
             setSearchText={(searchText: string) => {
               this.changeSearchText(searchText);
             }}
+            startSearch={this.fetchCards}
           />
         </header>
-        <main />
+        <main>
+          <Cards cards={cards} />
+        </main>
       </>
     );
   }

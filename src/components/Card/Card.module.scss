@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  list-style-type: none;
+  text-align: left;
+  margin-bottom: 0.5em;
+
+  & span {
+    font-weight: 700;
+  }
+}
