@@ -14,12 +14,14 @@ class Cards extends Component<IProps> {
   render() {
     const { cards } = this.props;
 
-    return (
+    return cards.length ? (
       <ul className={classes.cards}>
         {cards.map((card) => (
           <Card key={card.url} card={card} />
         ))}
       </ul>
+    ) : (
+      <h2>Nothing found.</h2>
     );
   }
 }
