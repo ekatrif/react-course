@@ -9,6 +9,7 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 interface IState {
   searchText: string;
   cards: ICard[];
+  isLoading: boolean;
 }
 
 enum Endpoints {
@@ -21,6 +22,7 @@ class App extends Component<Record<string, ICard[] | never>, IState> {
     this.state = {
       searchText: localStorage.getItem('searchText') || '',
       cards: [],
+      isLoading: false,
     };
     this.fetchCards = this.fetchCards.bind(this);
   }
@@ -31,10 +33,12 @@ class App extends Component<Record<string, ICard[] | never>, IState> {
 
   fetchCards() {
     const { searchText } = this.state;
+    this.setState({ isLoading: true });
     fetch(Endpoints.SEARCH_PLANETS + searchText)
       .then((response) => response.json())
       .then((cards) => {
         this.setState({ cards: cards.results });
+        this.setState({ isLoading: false });
       });
   }
 
@@ -43,7 +47,7 @@ class App extends Component<Record<string, ICard[] | never>, IState> {
   }
 
   render() {
-    const { searchText, cards } = this.state;
+    const { searchText, cards, isLoading } = this.state;
     return (
       <>
         <header>
@@ -62,7 +66,7 @@ class App extends Component<Record<string, ICard[] | never>, IState> {
             <ErrorButton />
           </ErrorBoundary>
           <ErrorBoundary>
-            <Cards cards={cards} />
+            {isLoading ? <h2>Loading ....</h2> : <Cards cards={cards} />}
           </ErrorBoundary>
         </main>
       </>
