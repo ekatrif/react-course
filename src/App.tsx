@@ -3,6 +3,8 @@ import './App.scss';
 import SearchPanel from './components/Search/SearchPanel';
 import Cards from './components/Cards/Cards';
 import { ICard } from './components/Card/Card';
+import ErrorButton from './components/ErrorButton/ErrorButton';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 interface IState {
   searchText: string;
@@ -45,16 +47,23 @@ class App extends Component<Record<string, ICard[] | never>, IState> {
     return (
       <>
         <header>
-          <SearchPanel
-            searchText={searchText}
-            setSearchText={(searchText: string) => {
-              this.changeSearchText(searchText);
-            }}
-            startSearch={this.fetchCards}
-          />
+          <ErrorBoundary>
+            <SearchPanel
+              searchText={searchText}
+              setSearchText={(searchText: string) => {
+                this.changeSearchText(searchText);
+              }}
+              startSearch={this.fetchCards}
+            />
+          </ErrorBoundary>
         </header>
         <main>
-          <Cards cards={cards} />
+          <ErrorBoundary>
+            <ErrorButton />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <Cards cards={cards} />
+          </ErrorBoundary>
         </main>
       </>
     );
