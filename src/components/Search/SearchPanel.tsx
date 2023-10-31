@@ -26,6 +26,7 @@ class SearchPanel extends Component<IProps> {
   handleClick() {
     const { startSearch } = this.props;
     startSearch();
+    this.setSearchText();
   }
 
   setSearchText = () => {
