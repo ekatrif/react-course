@@ -26,7 +26,7 @@ class ErrorBoundary extends Component<IProps, IState> {
     const { error } = this.state;
     const { children } = this.props;
     if (error) {
-      return <h2>Something went wrong</h2>;
+      return <h2>Something went wrong...</h2>;
     }
     return children;
   }

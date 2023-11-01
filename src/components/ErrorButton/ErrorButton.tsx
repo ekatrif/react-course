@@ -5,18 +5,12 @@ const ErrorButton = () => {
   const [error, setError] = useState(false);
 
   const handleClick = () => {
-    try {
-      throw new Error('Click on "Throw new error" button');
-    } catch (error) {
-      setError(true);
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
+    setError(true);
   };
 
-  return error ? (
-    <h2>Something went wrong</h2>
-  ) : (
+  if (error) throw new Error();
+
+  return (
     <button
       className={classes.search__button}
       type="button"
