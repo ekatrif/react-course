@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import classes from './SearchPanel.module.scss';
+import ErrorButton from '../ErrorButton/ErrorButton';
 
 interface IProps {
   searchText: string;
@@ -48,6 +49,7 @@ const SearchPanel = ({ searchText, setSearchText, startSearch }: IProps) => {
       >
         Search
       </button>
+      <ErrorButton />
     </form>
   );
 };

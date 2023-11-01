@@ -16,7 +16,7 @@ const ErrorButton = () => {
       type="button"
       onClick={handleClick}
     >
-      Throw new error
+      Oops
     </button>
   );
 };
