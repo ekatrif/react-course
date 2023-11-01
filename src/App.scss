@@ -1,4 +1,4 @@
-#root {
+.wrapper {
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -6,4 +6,18 @@
   margin: 0 auto auto;
   padding: 2rem;
   text-align: center;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  background-color: rgba(255, 255, 255, 0.87);
+  color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }

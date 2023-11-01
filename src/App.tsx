@@ -30,7 +30,7 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <div className="wrapper">
       <header>
         <SearchPanel
           searchText={searchText}
@@ -43,7 +43,7 @@ const App = () => {
 
         {isLoading ? <h2>Loading ....</h2> : <Cards cards={cards} />}
       </main>
-    </>
+    </div>
   );
 };
 
