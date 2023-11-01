@@ -32,7 +32,7 @@ const SearchPanel = ({ searchText, setSearchText, startSearch }: IProps) => {
   };
 
   return (
-    <div className={classes.search}>
+    <form action="" className={classes.search}>
       <input
         className={classes.search__input}
         type="search"
@@ -43,12 +43,12 @@ const SearchPanel = ({ searchText, setSearchText, startSearch }: IProps) => {
       />
       <button
         className={classes.search__button}
-        type="button"
+        type="submit"
         onClick={handleClick}
       >
         Search
       </button>
-    </div>
+    </form>
   );
 };
 
