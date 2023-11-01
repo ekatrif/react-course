@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Main from '../../pages/Main/Main';
+import Main from '../../pages/MainPage/MainPage';
 import Layout from '../Layout/Layout';
 import { routes } from '../../router';
 
@@ -8,6 +8,8 @@ const AppRouter = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Main />} />
+
+        <Route path="/planet/:id" element={<Main />} />
 
         {routes.map((route) => (
           <Route
