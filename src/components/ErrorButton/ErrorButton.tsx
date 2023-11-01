@@ -13,22 +13,15 @@ class ErrorButton extends Component<Record<string, never>, IState> {
   }
 
   handleClick() {
-    try {
-      throw new Error('Click on "Throw new error" button');
-    } catch (error) {
-      this.setState({
-        error: true,
-      });
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
+    this.setState({
+      error: true,
+    });
   }
 
   render() {
     const { error } = this.state;
-    return error ? (
-      <h2>Something went wrong</h2>
-    ) : (
+    if (error) throw new Error();
+    return (
       <button
         className={classes.search__button}
         type="button"
