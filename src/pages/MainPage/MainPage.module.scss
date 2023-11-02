@@ -26,8 +26,12 @@
   display: flex;
   flex-direction: column;
   gap: 2em;
+  width: auto;
+  padding: 0.5em;
 }
 
 .mainColumn {
+  width: 30%;
+  padding: 0.5em;
   border-left: 1px solid lightblue;
 }

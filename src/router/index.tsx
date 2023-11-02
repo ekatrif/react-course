@@ -1,3 +1,25 @@
-import Error404 from '../pages/404Page/404Page';
+import { createBrowserRouter } from 'react-router-dom';
+import Layout from '../components/Layout/Layout';
+import Main from '../pages/MainPage/MainPage';
+import DetailedInfo from '../components/DetailedInfo/DetailedInfo';
 
-export const routes = [{ path: '404', element: Error404 }];
+const router = createBrowserRouter([
+  {
+    path: '/',
+    Component: Layout,
+    children: [
+      {
+        path: '/',
+        Component: Main,
+        children: [
+          {
+            path: 'planet/:id',
+            Component: DetailedInfo,
+          },
+        ],
+      },
+    ],
+  },
+]);
+
+export default router;

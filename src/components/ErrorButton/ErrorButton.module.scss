@@ -1,22 +1,9 @@
-.search {
-  display: flex;
-  gap: 1em;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  &__input {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 6px 10px;
-    min-width: 10em;
-    max-width: 15em;
-    box-sizing: border-box;
-    font-size: 14px;
-    background-color: #f8f8f8;
-    outline: none;
-  }
+.error {
 
   &__button {
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: rgb(65, 105, 225);
     border: none;
     color: white;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import classes from '../Search/SearchPanel.module.scss';
+import classes from './ErrorButton.module.scss';
 
 const ErrorButton = () => {
   const [error, setError] = useState(false);
@@ -12,7 +12,7 @@ const ErrorButton = () => {
 
   return (
     <button
-      className={classes.search__button}
+      className={classes.error__button}
       type="button"
       onClick={handleClick}
     >

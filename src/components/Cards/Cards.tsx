@@ -8,8 +8,8 @@ interface IProps {
 const Cards = ({ cards }: IProps) => {
   return cards.length ? (
     <ul className={classes.cards}>
-      {cards.map((card) => (
-        <Card key={card.url} card={card} />
+      {cards.map((card, index) => (
+        <Card key={card.url} card={card} id={index + 1} />
       ))}
     </ul>
   ) : (

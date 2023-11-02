@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  list-style-type: none;
+  text-align: left;
+  margin-bottom: 0.5em;
+  color: blue;
+
+  & span {
+    font-weight: 700;
+  }
+}
+
+.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+}

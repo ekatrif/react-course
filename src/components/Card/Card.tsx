@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import classes from './Card.module.scss';
 
 export interface ICard {
@@ -19,27 +20,18 @@ export interface ICard {
 
 interface IProps {
   card: ICard;
+  id: number;
 }
 
-const Card = ({ card }: IProps) => {
-  const rotationPeriod = card.rotation_period;
-  const orbitalPeriod = card.orbital_period;
-  const surfaceWater = card.surface_water;
-
-  const { name, diameter, climate, terrain, population } = card;
+const Card = ({ card, id }: IProps) => {
+  const { name, diameter, climate, terrain } = card;
 
   return (
     <li>
-      <h3>{name}</h3>
+      <Link key={name} to={`planet/${id}`}>
+        <h3>{name}</h3>
+      </Link>
       <ul className={classes.list}>
-        <li>
-          <span>Rotation period: </span>
-          {rotationPeriod}
-        </li>
-        <li>
-          <span>Orbital period: </span>
-          {orbitalPeriod}
-        </li>
         <li>
           <span>Diameter: </span>
           {diameter}
@@ -51,14 +43,6 @@ const Card = ({ card }: IProps) => {
         <li>
           <span>Terrain: </span>
           {terrain}
-        </li>
-        <li>
-          <span>Surface water: </span>
-          {surfaceWater}
-        </li>
-        <li>
-          <span>Population: </span>
-          {population}
         </li>
       </ul>
     </li>
