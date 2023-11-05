@@ -9,7 +9,7 @@ const Cards = ({ cards }: IProps) => {
   return cards.length ? (
     <ul className={classes.cards}>
       {cards.map((card, index) => (
-        <Card key={card.url} card={card} id={index + 1} />
+        <Card key={card.href} card={card} id={index + 1} />
       ))}
     </ul>
   ) : (

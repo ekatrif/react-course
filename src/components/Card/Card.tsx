@@ -1,21 +1,28 @@
 import { Link } from 'react-router-dom';
 import classes from './Card.module.scss';
 
+interface IData {
+  center: string;
+  title: string;
+  photographer: string;
+  keywords: string[];
+  location: string;
+  nasa_id: string;
+  media_type: string;
+  date_created: string;
+  description: string;
+}
+
+interface ILink {
+  href: string;
+  rel: string;
+  render: string;
+}
+
 export interface ICard {
-  name: string;
-  rotation_period: string;
-  orbital_period: string;
-  diameter: string;
-  climate: string;
-  gravity: string;
-  terrain: string;
-  surface_water: string;
-  population: string;
-  residents: string[];
-  films: string[];
-  created: string;
-  edited: string;
-  url: string;
+  href: string;
+  data: IData[];
+  links: ILink[];
 }
 
 interface IProps {
@@ -24,27 +31,15 @@ interface IProps {
 }
 
 const Card = ({ card, id }: IProps) => {
-  const { name, diameter, climate, terrain } = card;
+  const { title } = card.data[0];
+  const { description } = card.data[0];
 
   return (
     <li>
-      <Link key={name} to={`planet/${id}`}>
-        <h3>{name}</h3>
+      <Link key={title} to={`article/${id}`}>
+        <h3 className="cardTitle">{title}</h3>
       </Link>
-      <ul className={classes.list}>
-        <li>
-          <span>Diameter: </span>
-          {diameter}
-        </li>
-        <li>
-          <span>Climate: </span>
-          {climate}
-        </li>
-        <li>
-          <span>Terrain: </span>
-          {terrain}
-        </li>
-      </ul>
+      <div className={classes.description}>{description}</div>
     </li>
   );
 };

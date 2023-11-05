@@ -1,7 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
 import Main from '../pages/MainPage/MainPage';
-import DetailedInfo from '../components/DetailedInfo/DetailedInfo';
 
 const router = createBrowserRouter([
   {
@@ -13,8 +12,8 @@ const router = createBrowserRouter([
         Component: Main,
         children: [
           {
-            path: 'planet/:id',
-            Component: DetailedInfo,
+            path: 'article/:id',
+            Component: Main,
           },
         ],
       },
