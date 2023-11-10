@@ -6,6 +6,8 @@
   list-style-type: none;
 
   & > li {
+    max-width: 100%;
     border-bottom: 1px solid lightblue;
+    overflow-wrap: break-word;
   }
 }

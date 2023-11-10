@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import DetailedBlock from '../../components/DetailedBlock/DetailedBlock';
 import SearchPanel from '../../components/Search/SearchPanel';
 import Cards from '../../components/Cards/Cards';
-import DetailedInfo from '../../components/DetailedInfo/DetailedInfo';
 import { Endpoints } from '../../api';
 import classes from './MainPage.module.scss';
 
 const CARDS_PER_PAGE = [5, 10, 15, 20];
 
-const Main = () => {
+const MainPage = () => {
   const [searchText, setSearchText] = useState(
     localStorage.getItem('searchText') || ''
   );
@@ -21,6 +21,13 @@ const Main = () => {
 
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const handleCloseDetails = (e: React.MouseEvent) => {
+    const clickedElement = e.target as HTMLDivElement;
+    if (id && !clickedElement.classList.contains('cardTitle')) {
+      navigate('/');
+    }
+  };
 
   const fetchCards = () => {
     setIsLoading(true);
@@ -39,13 +46,6 @@ const Main = () => {
         setCards(cards.collection.items);
         setIsLoading(false);
       });
-  };
-
-  const handleCloseDetails = (e: React.MouseEvent) => {
-    const clickedElement = e.target as HTMLDivElement;
-    if (id && !clickedElement.classList.contains('cardTitle')) {
-      navigate('/');
-    }
   };
 
   const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -79,61 +79,59 @@ const Main = () => {
   }, [page, cardsPerPage]);
 
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.leftColumn} onClick={handleCloseDetails}>
-        <header>
+    <>
+      <div className={classes.mainblock} onClick={handleCloseDetails}>
+        <div>
           <SearchPanel
             searchText={searchText}
             setSearchText={(searchText) => setSearchText(searchText)}
             startSearch={fetchCards}
           />
-        </header>
-        <main>
-          {isLoading ? <h2>Loading ....</h2> : <Cards cards={cards} />}
-          {isLoading ? null : (
-            <div className={classes.pagination}>
-              <ul className={classes.pagination__navigation}>
-                <li key="prev">
-                  <button
-                    type="button"
-                    disabled={page === 1}
-                    onClick={handlePrevPage}
-                  >
-                    Previous
-                  </button>
-                </li>
-                <li key="next">
-                  <button
-                    type="button"
-                    disabled={page === pages}
-                    onClick={handleNextPage}
-                  >
-                    Next
-                  </button>
-                </li>
-              </ul>
-              <select
-                className={classes.pagination__pages}
-                value={cardsPerPage}
-                onChange={handleOptionChange}
-              >
-                {CARDS_PER_PAGE.map((number) => (
-                  <option key={number} value={number}>
-                    Cards per page: {number}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
-        </main>
+        </div>
+        {isLoading ? <h2>Loading ....</h2> : <Cards cards={cards} />}
+        {isLoading ? null : (
+          <div className={classes.pagination}>
+            <ul className={classes.pagination__navigation}>
+              <li key="prev">
+                <button
+                  type="button"
+                  disabled={page === 1}
+                  onClick={handlePrevPage}
+                >
+                  Previous
+                </button>
+              </li>
+              <li key="next">
+                <button
+                  type="button"
+                  disabled={page === pages}
+                  onClick={handleNextPage}
+                >
+                  Next
+                </button>
+              </li>
+            </ul>
+            <select
+              className={classes.pagination__pages}
+              value={cardsPerPage}
+              onChange={handleOptionChange}
+            >
+              {CARDS_PER_PAGE.map((number) => (
+                <option key={number} value={number}>
+                  Cards per page: {number}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
       </div>
       {id ? (
-        <div className={classes.mainColumn}>
-          <DetailedInfo cards={cards} />
+        <div className={classes.rightColumn}>
+          <DetailedBlock cards={cards} />
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 
-export default Main;
+export default MainPage;

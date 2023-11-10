@@ -1,12 +1,12 @@
 import { Link, useParams } from 'react-router-dom';
 import { ICard } from '../Card/Card';
-import classes from './DetailedInfo.module.scss';
+import classes from './DetailedBlock.module.scss';
 
 interface IProps {
   cards: ICard[];
 }
 
-const DetailedInfo = ({ cards }: IProps) => {
+const DetailedBlock = ({ cards }: IProps) => {
   const { id } = useParams();
 
   const title = id ? cards[+id - 1].data[0].title : '';
@@ -27,4 +27,4 @@ const DetailedInfo = ({ cards }: IProps) => {
   );
 };
 
-export default DetailedInfo;
+export default DetailedBlock;
