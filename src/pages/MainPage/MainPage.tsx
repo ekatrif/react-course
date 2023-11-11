@@ -9,7 +9,7 @@ import classes from './MainPage.module.scss';
 
 const MainPage = () => {
   const { state } = useContext(AppContext);
-  const { cards, isLoading } = state;
+  const { isLoading } = state;
 
   const { id } = useParams();
   const navigate = useNavigate();
