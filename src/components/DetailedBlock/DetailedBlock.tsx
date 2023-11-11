@@ -1,12 +1,12 @@
 import { Link, useParams } from 'react-router-dom';
-import { ICard } from '../Card/Card';
+import { useContext } from 'react';
+import { AppContext } from '../../context';
 import classes from './DetailedBlock.module.scss';
 
-interface IProps {
-  cards: ICard[];
-}
+const DetailedBlock = () => {
+  const { state } = useContext(AppContext);
+  const { cards } = state;
 
-const DetailedBlock = ({ cards }: IProps) => {
   const { id } = useParams();
 
   const title = id ? cards[+id - 1].data[0].title : '';

@@ -1,35 +1,84 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { AppContext } from '../../context';
+import { Actions } from '../../reducer/types';
 import classes from './SearchPanel.module.scss';
 import ErrorButton from '../ErrorButton/ErrorButton';
+import { Endpoints } from '../../api';
 
-interface IProps {
-  searchText: string;
-  setSearchText: (searchText: string) => void;
-  startSearch: () => void;
-}
-
-const SearchPanel = ({ searchText, setSearchText, startSearch }: IProps) => {
-  const changeSearchText = () => {
-    localStorage.setItem('searchText', searchText);
-  };
+const SearchPanel = () => {
+  const { state, dispatch } = useContext(AppContext);
+  const { searchText, page, cardsPerPage, cardsCount, cards } = state;
 
   const getSearchText = () => {
     if (localStorage.getItem('searchText')) {
       const searchText = localStorage.getItem('searchText') as string;
-      setSearchText(searchText);
+      dispatch({
+        type: Actions.SET_SEARCH_TEXT,
+        payload: searchText,
+      });
     }
   };
 
+  const fetchCards = () => {
+    dispatch({
+      type: Actions.SET_ISLOADING,
+      payload: true,
+    });
+    fetch(
+      `${
+        Endpoints.SEARCH_PHOTOS + searchText
+      }&page=${page}&page_size=${cardsPerPage}`
+    )
+      .then((response) => response.json())
+      .then((cards) => {
+        dispatch({
+          type: Actions.SET_FETCH_SUCCESS,
+          payload: cards,
+        });
+      })
+      .catch(() => {
+        dispatch({
+          type: Actions.SET_FETCH_ERROR,
+          payload: {},
+        });
+      });
+  };
+
+  const changeUrl = () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set('page', page.toString());
+    const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
+    window.history.pushState(null, '', newUrl);
+  };
+
+  useEffect(() => {
+    fetchCards();
+    changeUrl();
+  }, [page, cardsPerPage]);
+
+  useEffect(() => {
+    // How many pages (total)
+    dispatch({
+      type: Actions.SET_PAGES,
+      payload: Math.ceil(cardsCount / cardsPerPage),
+    });
+  }, [cards]);
+
   useEffect(() => {
     getSearchText();
+    fetchCards();
   }, []);
 
-  useEffect(() => {
-    changeSearchText();
-  }, [searchText]);
-
   const handleClick = () => {
-    startSearch();
+    fetchCards();
+  };
+
+  const saveSearchText = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: Actions.SET_SEARCH_TEXT,
+      payload: e.target.value,
+    });
+    localStorage.setItem('searchText', e.target.value);
   };
 
   return (
@@ -38,9 +87,7 @@ const SearchPanel = ({ searchText, setSearchText, startSearch }: IProps) => {
         className={classes.search__input}
         type="search"
         value={searchText}
-        onChange={(e) => {
-          setSearchText(e.target.value);
-        }}
+        onChange={(e) => saveSearchText(e)}
       />
       <button
         className={classes.search__button}

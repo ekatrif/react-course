@@ -1,11 +1,12 @@
+import { useContext } from 'react';
+import Card from '../Card/Card';
+import { AppContext } from '../../context';
 import classes from './Cards.module.scss';
-import Card, { ICard } from '../Card/Card';
 
-interface IProps {
-  cards: ICard[];
-}
+const Cards = () => {
+  const { state } = useContext(AppContext);
+  const { cards } = state;
 
-const Cards = ({ cards }: IProps) => {
   return cards.length ? (
     <ul className={classes.cards}>
       {cards.map((card, index) => (
