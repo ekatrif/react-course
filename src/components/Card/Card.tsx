@@ -35,7 +35,7 @@ const Card = ({ card, id }: IProps) => {
   const { description } = card.data[0];
 
   return (
-    <li>
+    <li data-testid="card">
       <Link key={title} to={`article/${id}`}>
         <h3 className="cardTitle">{title}</h3>
       </Link>
