@@ -23,7 +23,11 @@ const MainPage = () => {
 
   return (
     <>
-      <div className={classes.mainblock} onClick={handleCloseDetails}>
+      <div
+        className={classes.mainblock}
+        onClick={handleCloseDetails}
+        data-testid="main-block"
+      >
         <div>
           <SearchPanel />
         </div>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1699789912118" clover="3.2.0">
-  <project timestamp="1699789912118" name="All files">
-    <metrics statements="119" coveredstatements="67" conditionals="38" coveredconditionals="9" methods="34" coveredmethods="17" elements="191" coveredelements="93" complexity="0" loc="119" ncloc="119" packages="14" files="15" classes="15"/>
+<coverage generated="1699791102148" clover="3.2.0">
+  <project timestamp="1699791102148" name="All files">
+    <metrics statements="128" coveredstatements="104" conditionals="40" coveredconditionals="19" methods="37" coveredmethods="27" elements="205" coveredelements="150" complexity="0" loc="128" ncloc="128" packages="15" files="16" classes="16"/>
     <package name="src">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="App.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/App.tsx">
@@ -14,57 +14,72 @@
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="index.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/api/index.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
+        <line num="1" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Card">
-      <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Card.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/components/Card/Card.tsx">
-        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="37" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Cards">
-      <metrics statements="5" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="Cards.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/components/Cards/Cards.tsx">
-        <metrics statements="5" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="13" count="0" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.components.DetailedBlock">
-      <metrics statements="8" coveredstatements="1" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
       <file name="DetailedBlock.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/components/DetailedBlock/DetailedBlock.tsx">
-        <metrics statements="8" coveredstatements="1" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="16" count="0" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.ErrorBoundary">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="ErrorBoundary.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/components/ErrorBoundary/ErrorBoundary.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.components.ErrorButton">
       <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="ErrorButton.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/components/ErrorButton/ErrorButton.tsx">
         <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="11" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="13" count="2" type="stmt"/>
+        <line num="11" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Layout">
@@ -76,61 +91,61 @@
       </file>
     </package>
     <package name="src.components.Pagination">
-      <metrics statements="14" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <metrics statements="14" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
       <file name="Pagination.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/components/Pagination/Pagination.tsx">
-        <metrics statements="14" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <metrics statements="14" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Search">
       <metrics statements="33" coveredstatements="30" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="10"/>
       <file name="SearchPanel.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/components/Search/SearchPanel.tsx">
         <metrics statements="33" coveredstatements="30" conditionals="2" coveredconditionals="2" methods="13" coveredmethods="10"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="5" type="stmt"/>
-        <line num="27" count="5" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="27" count="7" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
-        <line num="54" count="2" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
-        <line num="56" count="2" type="stmt"/>
-        <line num="59" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
-        <line num="68" count="2" type="stmt"/>
-        <line num="69" count="2" type="stmt"/>
-        <line num="72" count="2" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="59" count="3" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
+        <line num="68" count="3" type="stmt"/>
+        <line num="69" count="3" type="stmt"/>
+        <line num="72" count="3" type="stmt"/>
         <line num="73" count="1" type="stmt"/>
-        <line num="76" count="2" type="stmt"/>
+        <line num="76" count="3" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
         <line num="81" count="1" type="stmt"/>
-        <line num="84" count="2" type="stmt"/>
+        <line num="84" count="3" type="stmt"/>
         <line num="90" count="1" type="stmt"/>
       </file>
     </package>
@@ -138,8 +153,8 @@
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="index.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/context/index.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
       </file>
@@ -153,27 +168,27 @@
       </file>
     </package>
     <package name="src.pages.MainPage">
-      <metrics statements="10" coveredstatements="1" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="10" coveredstatements="7" conditionals="10" coveredconditionals="3" methods="2" coveredmethods="1"/>
       <file name="MainPage.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/pages/MainPage/MainPage.tsx">
-        <metrics statements="10" coveredstatements="1" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
+        <metrics statements="10" coveredstatements="7" conditionals="10" coveredconditionals="3" methods="2" coveredmethods="1"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="20" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.reducer">
       <metrics statements="24" coveredstatements="12" conditionals="14" coveredconditionals="4" methods="2" coveredmethods="1"/>
       <file name="index.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/reducer/index.tsx">
         <metrics statements="14" coveredstatements="2" conditionals="12" coveredconditionals="2" methods="1" coveredmethods="0"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="cond" truecount="0" falsecount="10"/>
         <line num="18" count="0" type="stmt"/>
@@ -189,23 +204,23 @@
       </file>
       <file name="types.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/reducer/types.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
+        <line num="3" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
       </file>
     </package>
     <package name="src.settings">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.tsx" path="D:/OneDrive - Isdcay/Documents/FRONTEND-Разработка/Pet-projects/rs-school/react/react-course/src/settings/index.tsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="6" type="stmt"/>
       </file>
     </package>
   </project>
