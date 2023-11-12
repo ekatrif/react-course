@@ -50,6 +50,7 @@ const Pagination = () => {
             type="button"
             disabled={page === pages}
             onClick={handleNextPage}
+            data-testid="next"
           >
             Next
           </button>

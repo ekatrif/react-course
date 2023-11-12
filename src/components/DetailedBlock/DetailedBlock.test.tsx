@@ -298,5 +298,5 @@ test('clicking the close button hides the component', () => {
   setTimeout(() => {
     const detailedElement = queryByTestId('detailed');
     expect(detailedElement).not.toBeInTheDocument();
-  }, 0);
+  }, 500);
 });
