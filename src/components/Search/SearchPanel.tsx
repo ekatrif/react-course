@@ -88,11 +88,13 @@ const SearchPanel = () => {
         type="search"
         value={searchText}
         onChange={(e) => saveSearchText(e)}
+        data-testid="search"
       />
       <button
         className={classes.search__button}
         type="submit"
         onClick={handleClick}
+        data-testid="search-button"
       >
         Search
       </button>
