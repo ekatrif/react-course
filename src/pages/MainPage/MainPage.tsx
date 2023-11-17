@@ -1,15 +1,22 @@
-import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import DetailedBlock from '../../components/DetailedBlock/DetailedBlock';
 import SearchPanel from '../../components/Search/SearchPanel';
 import Cards from '../../components/Cards/Cards';
-import { AppContext } from '../../context';
 import Pagination from '../../components/Pagination/Pagination';
+import { useSelector } from '../../store/index';
+import { useGetCardsQuery } from '../../store/reducers/apiSlice';
 import classes from './MainPage.module.scss';
 
 const MainPage = () => {
-  const { state } = useContext(AppContext);
-  const { isLoading } = state;
+  const { searchText, page, cardsPerPage } = useSelector(
+    (state) => state.mainReducer
+  );
+
+  const { isLoading, isError } = useGetCardsQuery({
+    searchText,
+    page,
+    cardsPerPage,
+  });
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -31,6 +38,7 @@ const MainPage = () => {
         <div>
           <SearchPanel />
         </div>
+        {isError && <h2>Error while fetching.</h2>}
         {isLoading ? <h2>Loading ....</h2> : <Cards />}
         {isLoading ? null : <Pagination />}
       </div>

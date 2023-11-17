@@ -1,40 +1,42 @@
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AppContext } from '../../context';
-import { Actions } from '../../reducer/types';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from '../../store/index';
 import { CARDS_PER_PAGE } from '../../settings';
+import { setCardsPerPage, setPage } from '../../store/reducers/mainSlice';
 import classes from './Pagination.module.scss';
 
 const Pagination = () => {
-  const { state, dispatch } = useContext(AppContext);
-  const { page, pages, cardsPerPage } = state;
+  const { page, pages, cardsPerPage } = useSelector(
+    (state) => state.mainReducer
+  );
+
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
   const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch({
-      type: Actions.SET_CARDS_PER_PAGE,
-      payload: +e.target.value,
-    });
-    dispatch({
-      type: Actions.SET_PAGE,
-      payload: 1,
-    });
+    dispatch(setCardsPerPage(+e.target.value));
+    dispatch(setPage(1));
     navigate('/');
   };
 
+  const changeUrl = () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set('page', page.toString());
+    const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
+    window.history.pushState(null, '', newUrl);
+  };
+
+  useEffect(() => {
+    changeUrl();
+  }, [page, cardsPerPage]);
+
   const handlePrevPage = () => {
-    dispatch({
-      type: Actions.SET_PAGE,
-      payload: page - 1,
-    });
+    dispatch(setPage(page - 1));
   };
 
   const handleNextPage = () => {
-    dispatch({
-      type: Actions.SET_PAGE,
-      payload: page + 1,
-    });
+    dispatch(setPage(page + 1));
   };
 
   return (

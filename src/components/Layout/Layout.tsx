@@ -1,5 +1,4 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { AppProvider } from '../../context';
 import classes from './Layout.module.scss';
 
 const Layout = () => {
@@ -11,9 +10,7 @@ const Layout = () => {
         </NavLink>
       </header>
       <main className={classes.wrapper}>
-        <AppProvider>
-          <Outlet />
-        </AppProvider>
+        <Outlet />
       </main>
       <footer className="footer__wrapper">2023 RS School Ekatrif</footer>
     </div>

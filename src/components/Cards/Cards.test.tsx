@@ -2,7 +2,6 @@ import { test, expect } from 'vitest';
 import '@testing-library/jest-dom';
 import { render, getByText } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { AppContext } from '../../context';
 import { ICard } from '../Card/Card';
 import Cards from './Cards';
 
@@ -117,25 +116,10 @@ test('renders the specified number of cards', () => {
     },
   ];
 
-  const appContextValue = {
-    state: {
-      cards: mockCards,
-      searchText: '',
-      pages: 1,
-      cardsCount: 0,
-      page: 1,
-      cardsPerPage: 1,
-      isLoading: true,
-    },
-    dispatch: () => {},
-  };
-
   // Render the Cards component within the mocked AppContext provider
   const { getAllByTestId } = render(
     <BrowserRouter>
-      <AppContext.Provider value={appContextValue}>
-        <Cards />
-      </AppContext.Provider>
+      <Cards />
     </BrowserRouter>
   );
 

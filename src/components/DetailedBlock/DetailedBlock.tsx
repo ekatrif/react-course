@@ -1,11 +1,10 @@
 import { Link, useParams } from 'react-router-dom';
-import { useContext } from 'react';
-import { AppContext } from '../../context';
+import { useSelector } from '../../store/index';
+
 import classes from './DetailedBlock.module.scss';
 
 const DetailedBlock = () => {
-  const { state } = useContext(AppContext);
-  const { cards } = state;
+  const { cards } = useSelector((state) => state.mainReducer);
 
   const { id } = useParams();
 
