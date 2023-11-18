@@ -22,7 +22,7 @@ const Cards = () => {
     cardsPerPage,
   });
 
-  const cards = data.collection.items as ICard[];
+  const cards = data?.collection.items as ICard[];
 
   useEffect(() => {
     if (data) {
@@ -32,7 +32,7 @@ const Cards = () => {
     }
   }, [cards]);
 
-  return cards.length ? (
+  return cards?.length ? (
     <ul className={classes.cards}>
       {cards.map((card, index) => (
         <Card key={card.href} card={card} id={index + 1} />

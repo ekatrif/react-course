@@ -8,9 +8,9 @@ const DetailedBlock = () => {
 
   const { id } = useParams();
 
-  const title = id ? cards[+id - 1].data[0].title : '';
-  const description = id ? cards[+id - 1].data[0].description : '';
-  const photo = id ? cards[+id - 1].links[0].href : '';
+  const title = id ? cards[+id - 1]?.data[0].title : '';
+  const description = id ? cards[+id - 1]?.data[0].description : '';
+  const photo = id ? cards[+id - 1]?.links[0].href : '';
 
   return (
     <div className={classes.wrapper} data-testid="detailed">

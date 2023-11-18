@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Card from './Card';
 
 test('renders the relevant card data', () => {
-  // Define the mock card data
   const mockCard = {
     href: 'https://images-assets.nasa.gov/image/201106070070HQ/collection.json',
     data: [
@@ -40,24 +39,20 @@ test('renders the relevant card data', () => {
     ],
   };
 
-  // Render the Card component with the mock card data
   const { getByTestId, getByText } = render(
     <BrowserRouter>
       <Card card={mockCard} id={0} />
     </BrowserRouter>
   );
 
-  // Get the rendered card element
   const cardElement = getByTestId('card');
 
-  // Assert that the relevant card data is rendered
   expect(cardElement).toBeInTheDocument();
   expect(getByText('Example Card')).toBeInTheDocument();
   expect(getByText('This is an example card.')).toBeInTheDocument();
 });
 
 test('clicking on a card opens a detailed card component', () => {
-  // Define the mock card data
   const mockCard = {
     href: 'https://images-assets.nasa.gov/image/201106070070HQ/collection.json',
     data: [
@@ -92,10 +87,8 @@ test('clicking on a card opens a detailed card component', () => {
     ],
   };
 
-  // Define a mock function to handle the card click event
   const handleCardClick = vi.fn();
 
-  // Render the Card component with the mock card data and click event handler
   const { getByTestId } = render(
     <BrowserRouter>
       <button type="button" onClick={handleCardClick}>
@@ -103,12 +96,10 @@ test('clicking on a card opens a detailed card component', () => {
       </button>
     </BrowserRouter>
   );
-  // Get the rendered card element
+
   const clickedElement = getByTestId('card');
 
-  // Simulate a click event on the card element
   fireEvent.click(clickedElement);
 
-  // Assert that the click event handler was called
   expect(handleCardClick).toHaveBeenCalled();
 });

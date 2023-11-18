@@ -26,6 +26,7 @@
     "@testing-library/user-event": "^14.5.1",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
+    "@types/redux-mock-store": "^1.0.6",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "@vitejs/plugin-react": "^4.0.4",
@@ -42,10 +43,13 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "husky": "^8.0.0",
     "jsdom": "^22.1.0",
+    "msw": "^2.0.8",
     "prettier": "^3.0.3",
+    "redux-mock-store": "^1.5.4",
     "sass": "^1.69.4",
     "typescript": "^5.0.2",
     "vite": "^4.4.8",
-    "vitest": "^0.34.6"
+    "vitest": "^0.34.6",
+    "vitest-fetch-mock": "^0.2.2"
   }
 }

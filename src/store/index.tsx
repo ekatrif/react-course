@@ -4,21 +4,23 @@ import {
   useDispatch as useReduxDispatch,
   type TypedUseSelectorHook,
 } from 'react-redux';
+import type { PreloadedState } from '@reduxjs/toolkit';
 import { api } from './reducers/apiSlice';
 import mainReducer from './reducers/mainSlice';
 
 const rootReducer = combineReducers({
   mainReducer,
-  api: api.reducer,
+  [api.reducerPath]: api.reducer,
 });
 
-export const setupStore = () => {
+export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: false,
       }).concat(api.middleware),
+    preloadedState,
   });
 };
 
