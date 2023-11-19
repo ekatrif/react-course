@@ -36,7 +36,7 @@ const MainPage = () => {
         data-testid="main-block"
       >
         <div>
-          <SearchPanel />
+          <SearchPanel data-testid="search" />
         </div>
         {isError && <h2>Error while fetching.</h2>}
         {isLoading ? <h2>Loading ....</h2> : <Cards />}

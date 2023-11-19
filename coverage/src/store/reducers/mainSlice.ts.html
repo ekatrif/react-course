@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/store/reducers/mainSlice.tsx</title>
+    <title>Code coverage report for src/store/reducers/mainSlice.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/store/reducers</a> mainSlice.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/store/reducers</a> mainSlice.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.05% </span>
+                <span class="strong">42.1% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/19</span>
+                <span class='fraction'>8/19</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>5/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.05% </span>
+                <span class="strong">42.1% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/19</span>
+                <span class='fraction'>8/19</span>
             </div>
         
             
@@ -162,7 +162,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,9 +173,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -185,21 +200,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -224,7 +224,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// import { setupListeners } from '@reduxjs/toolkit/query';
@@ -265,17 +265,17 @@ export const mainSlice = createSlice({
 <span class="fstat-no" title="function not covered" >    setCards(s</span>tate, action: PayloadAction&lt;PayloadCards&gt;) {
 <span class="cstat-no" title="statement not covered" >      state.cards = action.payload;</span>
     },
-<span class="fstat-no" title="function not covered" >    setPages(s</span>tate, action: PayloadAction&lt;PayloadPages&gt;) {
-<span class="cstat-no" title="statement not covered" >      state.pages = action.payload;</span>
+    setPages(state, action: PayloadAction&lt;PayloadPages&gt;) {
+      state.pages = action.payload;
     },
-<span class="fstat-no" title="function not covered" >    setCardsCount(s</span>tate, action: PayloadAction&lt;PayloadCardsCount&gt;) {
-<span class="cstat-no" title="statement not covered" >      state.cardsCount = action.payload;</span>
+    setCardsCount(state, action: PayloadAction&lt;PayloadCardsCount&gt;) {
+      state.cardsCount = action.payload;
     },
-<span class="fstat-no" title="function not covered" >    setPage(s</span>tate, action: PayloadAction&lt;PayloadPage&gt;) {
-<span class="cstat-no" title="statement not covered" >      state.page = action.payload;</span>
+    setPage(state, action: PayloadAction&lt;PayloadPage&gt;) {
+      state.page = action.payload;
     },
-<span class="fstat-no" title="function not covered" >    setCardsPerPage(s</span>tate, action: PayloadAction&lt;PayloadCardsPerPage&gt;) {
-<span class="cstat-no" title="statement not covered" >      state.cardsPerPage = action.payload;</span>
+    setCardsPerPage(state, action: PayloadAction&lt;PayloadCardsPerPage&gt;) {
+      state.cardsPerPage = action.payload;
     },
 <span class="fstat-no" title="function not covered" >    setIsLoading(s</span>tate, action: PayloadAction&lt;PayloadIsLoading&gt;) {
 <span class="cstat-no" title="statement not covered" >      state.isLoading = action.payload;</span>
@@ -316,7 +316,7 @@ export default mainSlice.reducer;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-18T19:35:31.377Z
+                at 2023-11-19T08:37:06.441Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

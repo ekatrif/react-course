@@ -14,3 +14,14 @@ test('renders the mainBlock element', () => {
   const mainBlockElement = getByTestId('main-block');
   expect(mainBlockElement).toBeInTheDocument();
 });
+
+test('renders the search element', () => {
+  const { getByTestId } = renderWithProviders(
+    <BrowserRouter>
+      <MainPage />
+    </BrowserRouter>
+  );
+
+  const searchElement = getByTestId('search');
+  expect(searchElement).toBeInTheDocument();
+});
