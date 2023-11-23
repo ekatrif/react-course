@@ -1,4 +1,4 @@
-import { ICard } from '../../components/Card/Card';
+import { ICard } from '../../components/Card';
 
 export enum Actions {
   SET_SEARCH_TEXT,

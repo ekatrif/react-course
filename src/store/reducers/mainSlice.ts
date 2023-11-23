@@ -15,8 +15,14 @@ import {
 } from './types';
 import { CARDS_PER_PAGE } from '../../settings';
 
+let initialSearchText = '';
+
+if (typeof window !== 'undefined') {
+  initialSearchText = localStorage.getItem('searchText') || '';
+}
+
 export const initialState: IState = {
-  searchText: localStorage.getItem('searchText') || '',
+  searchText: initialSearchText,
   cards: [],
   pages: 1,
   cardsCount: 0,

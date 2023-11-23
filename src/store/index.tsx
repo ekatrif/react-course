@@ -5,7 +5,8 @@ import {
   type TypedUseSelectorHook,
 } from 'react-redux';
 import type { PreloadedState } from '@reduxjs/toolkit';
-import { api } from './reducers/apiSlice';
+import { createWrapper } from 'next-redux-wrapper';
+import { api } from '../services/api';
 import mainReducer from './reducers/mainSlice';
 
 const rootReducer = combineReducers({
@@ -30,3 +31,4 @@ export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector;
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
 export type AppDispatch = AppStore['dispatch'];
+export const wrapper = createWrapper<AppStore>(() => setupStore());

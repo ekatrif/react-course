@@ -50,6 +50,7 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'react/jsx-no-constructed-context-values': 'off',
     'no-param-reassign': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
   settings: {
     react: {
