@@ -51,6 +51,7 @@ module.exports = {
     'react/jsx-no-constructed-context-values': 'off',
     'no-param-reassign': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'eslint-disable-next-line @typescript-eslint/naming-convention': 'off',
   },
   settings: {
     react: {

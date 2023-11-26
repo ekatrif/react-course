@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from '../store/index';
 import ErrorButton from './ErrorButton';
 import { setSearchText } from '../store/reducers/mainSlice';
@@ -15,9 +16,14 @@ const SearchPanel = () => {
 
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const router = useRouter();
+
+  const handleClick = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
     localStorage.setItem('searchText', inputText);
     dispatch(setSearchText(inputText));
+    const queryParams = { ...router.query, q: inputText };
+    router.push({ query: queryParams });
   };
 
   const saveSearchText = (e: React.ChangeEvent<HTMLInputElement>) => {

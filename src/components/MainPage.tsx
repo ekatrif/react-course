@@ -1,23 +1,39 @@
+import { FC, Suspense } from 'react';
 import { useRouter } from 'next/router';
 import DetailedBlock from './DetailedBlock';
 import SearchPanel from './SearchPanel';
-import Cards from './Cards';
 import Pagination from './Pagination';
-import { useSelector } from '../store/index';
-import { useGetCardsQuery } from '../services/api';
+import { ICard } from './Card';
+import Cards from './Cards';
 import classes from '../styles/mainPage.module.scss';
 
-const MainPage = () => {
-  const router = useRouter();
-  const { searchText, page, cardsPerPage } = useSelector(
-    (state) => state.mainReducer
-  );
+interface ILink {
+  rel: string;
+  prompt: string;
+  href: string;
+}
 
-  const { isLoading, isError } = useGetCardsQuery({
-    searchText,
-    page,
-    cardsPerPage,
-  });
+interface IData {
+  data: {
+    collection: {
+      version: string;
+      href: string;
+      items: ICard[];
+      metadata: {
+        total_hits: number;
+      };
+      links?: ILink[];
+    };
+  };
+}
+
+export interface IProps {
+  data: IData;
+  id?: number;
+}
+
+const MainPage: FC<IProps> = ({ data }) => {
+  const router = useRouter();
 
   const { id } = router.query;
 
@@ -38,13 +54,14 @@ const MainPage = () => {
         <div>
           <SearchPanel data-testid="search" />
         </div>
-        {isError && <h2>Error while fetching.</h2>}
-        {isLoading ? <h2>Loading ....</h2> : <Cards />}
-        {isLoading ? null : <Pagination />}
+        <Suspense fallback={<h2>Loading...</h2>}>
+          <Cards cards={data?.data?.collection?.items} />
+          <Pagination data={data} />
+        </Suspense>
       </div>
       {id ? (
         <div className={classes.rightColumn}>
-          <DetailedBlock />
+          <DetailedBlock cards={data?.data?.collection?.items} id={+id} />
         </div>
       ) : null}
     </>

@@ -1,54 +1,48 @@
-import { useRouter } from 'next/router';
-import DetailedBlock from '../components/DetailedBlock';
-import SearchPanel from '../components/SearchPanel';
-import Cards from '../components/Cards';
-import Pagination from '../components/Pagination';
-import { useSelector } from '../store/index';
-import { useGetCardsQuery } from '../services/api';
-import classes from '../styles/mainPage.module.scss';
+import { FC } from 'react';
+import { GetServerSideProps } from 'next';
+import { ParsedUrlQuery } from 'querystring';
+import { wrapper } from '../store';
+import { getData, getRunningQueriesThunk } from '../services/api';
+import MainPage, { IProps } from '../components/MainPage';
+import { resolveRouterElement } from '../utils/resolveRouterElement';
+import { CARDS_PER_PAGE } from '../settings';
 
-const MainPage = () => {
-  const router = useRouter();
-  const { searchText, page, cardsPerPage } = useSelector(
-    (state) => state.mainReducer
-  );
+export interface IQueryParams extends ParsedUrlQuery {
+  q: string;
+  page: string;
+  page_size: string;
+}
 
-  const { isLoading, isError } = useGetCardsQuery({
-    searchText,
-    page,
-    cardsPerPage,
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps((store) => async (context) => {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const { q, page, page_size } = context.query as IQueryParams;
+
+    let initialSearchText = '';
+
+    if (typeof window !== 'undefined') {
+      initialSearchText = localStorage.getItem('searchText') || '';
+    }
+
+    const data = await store.dispatch(
+      getData.initiate({
+        searchText: resolveRouterElement(q, initialSearchText),
+        page: Number(resolveRouterElement(page, '1')),
+        cardsPerPage: Number(
+          resolveRouterElement(page_size, CARDS_PER_PAGE[0].toString())
+        ),
+      })
+    );
+
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
+
+    return {
+      props: {
+        data,
+      },
+    };
   });
 
-  const { id } = router.query;
+const IndexPage: FC<IProps> = ({ data }) => <MainPage data={data} />;
 
-  const handleCloseDetails = (e: React.MouseEvent) => {
-    const clickedElement = e.target as HTMLElement;
-    if (id && !clickedElement.classList.contains('cardTitle')) {
-      router.push('/');
-    }
-  };
-
-  return (
-    <>
-      <div
-        className={classes.mainblock}
-        onClick={handleCloseDetails}
-        data-testid="main-block"
-      >
-        <div>
-          <SearchPanel data-testid="search" />
-        </div>
-        {isError && <h2>Error while fetching.</h2>}
-        {isLoading ? <h2>Loading ....</h2> : <Cards />}
-        {isLoading ? null : <Pagination />}
-      </div>
-      {id ? (
-        <div className={classes.rightColumn}>
-          <DetailedBlock />
-        </div>
-      ) : null}
-    </>
-  );
-};
-
-export default MainPage;
+export default IndexPage;

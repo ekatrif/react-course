@@ -2,7 +2,6 @@ import { ICard } from '../../components/Card';
 
 export enum Actions {
   SET_SEARCH_TEXT,
-  SET_CARDS,
   SET_PAGES,
   SET_CARDS_COUNT,
   SET_PAGE,
@@ -14,7 +13,6 @@ export enum Actions {
 
 export interface IState {
   searchText: string;
-  cards: ICard[];
   pages: number;
   cardsCount: number;
   page: number;
@@ -24,7 +22,6 @@ export interface IState {
 }
 
 export type PayloadText = string;
-export type PayloadCards = ICard[];
 export type PayloadPages = number;
 export type PayloadCardsCount = number;
 export type PayloadPage = number;

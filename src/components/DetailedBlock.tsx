@@ -1,16 +1,13 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useSelector } from '../store/index';
-
+import { ICard } from './Card';
 import classes from '../styles/detailedBlock.module.scss';
 
-const DetailedBlock = () => {
-  const router = useRouter();
+export interface IProps {
+  cards: ICard[];
+  id: number;
+}
 
-  const { cards } = useSelector((state) => state.mainReducer);
-
-  const { id } = router.query;
-
+const DetailedBlock: React.FC<IProps> = ({ cards, id }) => {
   const title = id ? cards[+id - 1]?.data[0].title : '';
   const description = id ? cards[+id - 1]?.data[0].description : '';
   const photo = id ? cards[+id - 1]?.links[0].href : '';

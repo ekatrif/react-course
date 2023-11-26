@@ -2,24 +2,61 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from '../store/index';
 import { CARDS_PER_PAGE } from '../settings';
-import { setCardsPerPage, setPage } from '../store/reducers/mainSlice';
+import { ICard } from './Card';
+import {
+  setCardsPerPage,
+  setPage,
+  setCardsCount,
+  setPages,
+} from '../store/reducers/mainSlice';
 import classes from '../styles/pagination.module.scss';
 
-const Pagination = () => {
+interface ILink {
+  rel: string;
+  prompt: string;
+  href: string;
+}
+
+interface IData {
+  data: {
+    collection: {
+      version: string;
+      href: string;
+      items: ICard[];
+      metadata: {
+        total_hits: number;
+      };
+      links?: ILink[];
+    };
+  };
+}
+
+export interface IProps {
+  data: IData;
+  id?: number;
+}
+
+const Pagination: React.FC<IProps> = ({ data }) => {
+  const dispatch = useDispatch();
+
   const router = useRouter();
 
   const { id } = router.query;
 
-  const { page, pages, cardsPerPage } = useSelector(
+  const { page, pages, cardsPerPage, cardsCount } = useSelector(
     (state) => state.mainReducer
   );
 
-  const dispatch = useDispatch();
+  const cards = data?.data.collection?.items;
+
+  useEffect(() => {
+    dispatch(setCardsCount(+data.data.collection.metadata.total_hits) || 0);
+    dispatch(setPages(Math.ceil(cardsCount / cardsPerPage)));
+  }, [cards]);
 
   const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setCardsPerPage(+e.target.value));
     dispatch(setPage(1));
-    router.push('/');
   };
 
   useEffect(() => {
