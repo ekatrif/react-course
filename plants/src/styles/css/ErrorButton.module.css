@@ -1,0 +1,21 @@
+.error__button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(65, 105, 225);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.5s linear;
+}
+.error__button:hover {
+  background-color: rgb(115, 145, 245);
+  transition: all 0.5s linear;
+}/*# sourceMappingURL=ErrorButton.module.css.map */
