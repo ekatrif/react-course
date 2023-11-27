@@ -1,7 +1,6 @@
 import { HttpResponse, http } from 'msw';
-import { Endpoints } from '../../api';
-import { ICard } from '../../components/Card/Card';
-import { PayloadFetchSuccess } from '../../store/reducers/types';
+import { Endpoints } from '../../settings';
+import { ICard } from '../../components/Card';
 
 export const mockCards: ICard[] = [
   {
@@ -113,7 +112,7 @@ export const mockCards: ICard[] = [
   },
 ];
 
-export const mockData: PayloadFetchSuccess = {
+export const mockData = {
   collection: {
     items: mockCards,
     metadata: {

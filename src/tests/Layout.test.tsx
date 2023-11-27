@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import '@testing-library/jest-dom';
 
 test('renders Layout component correctly', () => {
-  render(<Layout />);
+  render(<Layout>{null}</Layout>);
 
   expect(screen.getByText('Main')).toBeInTheDocument();
 

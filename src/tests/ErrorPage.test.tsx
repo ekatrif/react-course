@@ -1,14 +1,16 @@
-import { test, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import App from '../pages/_app';
+import mockRouter from 'next-router-mock';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { vi, describe, test, expect } from 'vitest';
+import ErrorPage from '../pages/404';
 
-test('Page 404 render test', () => {
-  const renderWithRouter = (ui: React.ReactElement, { route = '/' } = {}) => {
-    window.history.pushState({}, 'Test page', route);
-    return render(ui);
-  };
-  renderWithRouter(<App />, { route: '/404' });
-  const text = screen.getByText('Error 404. Page not found.');
-  expect(text).toBeInTheDocument();
+vi.mock('next/router', () => vi.importActual('next-router-mock'));
+
+describe('ErrorPage', () => {
+  mockRouter.push('/initial-path');
+  test('renders correctly', () => {
+    render(<ErrorPage />);
+
+    expect(screen.getByText('Error 404. Page not found.')).toBeInTheDocument();
+  });
 });

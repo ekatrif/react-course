@@ -3,6 +3,7 @@ import { fireEvent } from '@testing-library/react';
 import DetailedBlock from '../components/DetailedBlock';
 import { renderWithProviders } from '../test/test-utils';
 import '@testing-library/jest-dom';
+import { mockCards } from '../test/server/serverHandlers';
 
 test('displays the detailed card data correctly', () => {
   vi.mock('react-router-dom', async () => {
@@ -15,7 +16,9 @@ test('displays the detailed card data correctly', () => {
     };
   });
 
-  const { getByTestId } = renderWithProviders(<DetailedBlock />);
+  const { getByTestId } = renderWithProviders(
+    <DetailedBlock cards={mockCards} id="1" />
+  );
 
   setTimeout(() => {
     const detailedElement = getByTestId('detailed-title');
@@ -34,7 +37,9 @@ test('clicking the close button hides the component', () => {
       }),
     };
   });
-  const { queryByTestId } = renderWithProviders(<DetailedBlock />);
+  const { queryByTestId } = renderWithProviders(
+    <DetailedBlock cards={mockCards} id="1" />
+  );
 
   const closeButton = queryByTestId('close-button') as Element;
   fireEvent.click(closeButton);

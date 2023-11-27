@@ -4,7 +4,7 @@ import classes from '../styles/detailedBlock.module.scss';
 
 export interface IProps {
   cards: ICard[];
-  id: number;
+  id: number | string;
 }
 
 const DetailedBlock: React.FC<IProps> = ({ cards, id }) => {

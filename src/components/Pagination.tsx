@@ -47,10 +47,10 @@ const Pagination: React.FC<IProps> = ({ data }) => {
     (state) => state.mainReducer
   );
 
-  const cards = data?.data.collection?.items;
+  const cards = data?.data?.collection?.items;
 
   useEffect(() => {
-    dispatch(setCardsCount(+data.data.collection.metadata.total_hits) || 0);
+    dispatch(setCardsCount(+data.data?.collection.metadata.total_hits) || 0);
     dispatch(setPages(Math.ceil(cardsCount / cardsPerPage)));
   }, [cards]);
 

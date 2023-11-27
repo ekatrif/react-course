@@ -52,6 +52,9 @@ module.exports = {
     'no-param-reassign': 'off',
     'react/jsx-props-no-spreading': 'off',
     'eslint-disable-next-line @typescript-eslint/naming-convention': 'off',
+    'eslint-disable-next-line react/no-children-prop': 'off',
+    'eslint-disable-next-line no-unsafe-optional-chaining': 'off',
+    'no-unsafe-optional-chaining': 'off',
   },
   settings: {
     react: {
