@@ -1,9 +1,9 @@
 import { test, expect } from 'vitest';
 import { getByText } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Cards from './Cards';
-import { renderWithProviders } from '../../test/test-utils';
-import { mockCards } from '../../test/server/serverHandlers';
+import Cards from '../components/Cards';
+import { renderWithProviders } from '../test/test-utils';
+import { mockCards } from '../test/server/serverHandlers';
 
 test('renders the specified number of cards', () => {
   const { getAllByTestId } = renderWithProviders(<Cards />);

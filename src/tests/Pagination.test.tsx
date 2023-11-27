@@ -1,8 +1,7 @@
 import { fireEvent } from '@testing-library/react';
 import { test, expect, vi } from 'vitest';
-import { BrowserRouter } from 'react-router-dom';
-import { renderWithProviders } from '../../test/test-utils';
-import Pagination from './Pagination';
+import { renderWithProviders } from '../test/test-utils';
+import Pagination from '../components/Pagination';
 
 const mockedUsedNavigate = vi.fn();
 
@@ -12,11 +11,7 @@ test('component updates URL query parameter when page changes', () => {
     useNavigate: () => mockedUsedNavigate(),
   }));
 
-  const { getByTestId } = renderWithProviders(
-    <BrowserRouter>
-      <Pagination />
-    </BrowserRouter>
-  );
+  const { getByTestId } = renderWithProviders(<Pagination />);
 
   // Change the page value
   const nextPageButton = getByTestId('next');

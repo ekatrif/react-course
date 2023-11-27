@@ -8,7 +8,7 @@ import mainReducer, {
 } from '../store/reducers/mainSlice';
 import { IState } from '../store/reducers/types';
 
-const state: IState = {
+const state = {
   searchText: 'example',
   cards: [],
   pages: 1,

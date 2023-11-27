@@ -1,8 +1,7 @@
 import { test, expect, vi } from 'vitest';
 import { fireEvent } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import DetailedBlock from './DetailedBlock';
-import { renderWithProviders } from '../../test/test-utils';
+import DetailedBlock from '../components/DetailedBlock';
+import { renderWithProviders } from '../test/test-utils';
 import '@testing-library/jest-dom';
 
 test('displays the detailed card data correctly', () => {
@@ -16,11 +15,7 @@ test('displays the detailed card data correctly', () => {
     };
   });
 
-  const { getByTestId } = renderWithProviders(
-    <BrowserRouter>
-      <DetailedBlock />
-    </BrowserRouter>
-  );
+  const { getByTestId } = renderWithProviders(<DetailedBlock />);
 
   setTimeout(() => {
     const detailedElement = getByTestId('detailed-title');
@@ -39,11 +34,7 @@ test('clicking the close button hides the component', () => {
       }),
     };
   });
-  const { queryByTestId } = renderWithProviders(
-    <BrowserRouter>
-      <DetailedBlock />
-    </BrowserRouter>
-  );
+  const { queryByTestId } = renderWithProviders(<DetailedBlock />);
 
   const closeButton = queryByTestId('close-button') as Element;
   fireEvent.click(closeButton);

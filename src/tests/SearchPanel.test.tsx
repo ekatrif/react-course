@@ -1,15 +1,10 @@
 import { fireEvent } from '@testing-library/react';
 import { test, expect } from 'vitest';
-import { BrowserRouter } from 'react-router-dom';
-import SearchPanel from './SearchPanel';
-import { renderWithProviders } from '../../test/test-utils';
+import SearchPanel from '../components/SearchPanel';
+import { renderWithProviders } from '../test/test-utils';
 
 test('clicking Search button saves entered value to local storage', () => {
-  const { getByTestId } = renderWithProviders(
-    <BrowserRouter>
-      <SearchPanel />
-    </BrowserRouter>
-  );
+  const { getByTestId } = renderWithProviders(<SearchPanel />);
 
   const searchInput = getByTestId('search');
   fireEvent.change(searchInput, { target: { value: 'example' } });
@@ -23,11 +18,7 @@ test('clicking Search button saves entered value to local storage', () => {
 test('component retrieves value from local storage upon mounting', () => {
   localStorage.setItem('searchText', 'example');
 
-  const { getByTestId } = renderWithProviders(
-    <BrowserRouter>
-      <SearchPanel />
-    </BrowserRouter>
-  );
+  const { getByTestId } = renderWithProviders(<SearchPanel />);
 
   const searchInput = getByTestId('search') as HTMLInputElement;
 
