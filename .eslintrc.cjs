@@ -27,6 +27,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'comma-dangle': ['error', 'only-multiline'],
     'react/prop-types': 'off',
     'react/display-name': 'off',
@@ -38,18 +39,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-var-requires': 'off',
     'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/no-shadow': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'react/function-component-definition': 'off',
-    'import/prefer-default-export': 'off',
-    '@typescript-eslint/no-useless-constructor': 'off',
-    'react/prefer-stateless-function': 'off',
-    'react-hooks/exhaustive-deps': 'off',
-    'jsx-a11y/click-events-have-key-events': 'off',
-    'jsx-a11y/no-static-element-interactions': 'off',
-    'react/jsx-no-constructed-context-values': 'off',
-    'no-param-reassign': 'off',
+    'react/react-in-jsx-scope': 'off'
   },
   settings: {
     react: {
