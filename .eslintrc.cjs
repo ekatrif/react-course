@@ -39,7 +39,9 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-var-requires': 'off',
     'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'eslint-disable-next-line no-param-reassign': 'off',
+    'eslint-disable-next-line jsx-a11y/label-has-associated-control': 'off',
   },
   settings: {
     react: {

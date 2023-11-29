@@ -1,43 +1,40 @@
-import { ICard } from '../../components/Card/Card';
+// export type Base64<ImageType extends string> =
+//   `data:image/${ImageType};base64${string}`;
 
-export enum Actions {
-  SET_SEARCH_TEXT,
-  SET_CARDS,
-  SET_PAGES,
-  SET_CARDS_COUNT,
-  SET_PAGE,
-  SET_CARDS_PER_PAGE,
-  SET_ISLOADING,
-  SET_FETCH_SUCCESS,
-  SET_FETCH_ERROR,
+export interface IFormState {
+  name: string;
+  age: number;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  gender: string;
+  acceptTC: boolean;
+  picture: File | null;
+  country: string;
 }
 
-export interface IState {
-  searchText: string;
-  cards: ICard[];
-  pages: number;
-  cardsCount: number;
-  page: number;
-  cardsPerPage: number;
-  isLoading: boolean;
-  error: string;
+enum Country {
+  UnitedStates = 'United States',
+  Canada = 'Canada',
+  UnitedKingdom = 'United Kingdom',
+  Germany = 'Germany',
+  France = 'France',
+  Japan = 'Japan',
+  Australia = 'Australia',
+  Brazil = 'Brazil',
+  India = 'India',
+  China = 'China',
 }
 
-export type PayloadText = string;
-export type PayloadCards = ICard[];
-export type PayloadPages = number;
-export type PayloadCardsCount = number;
-export type PayloadPage = number;
-export type PayloadCardsPerPage = number;
-export type PayloadIsLoading = boolean;
-export type PayloadFetchSuccess = {
-  collection: {
-    items: ICard[];
-    metadata: {
-      total_hits: number;
-    };
-  };
-  isLoading: PayloadIsLoading;
-  error: string;
-};
-export type PayloadFetchError = string;
+export const countries: Country[] = [
+  Country.UnitedStates,
+  Country.Canada,
+  Country.UnitedKingdom,
+  Country.Germany,
+  Country.France,
+  Country.Japan,
+  Country.Australia,
+  Country.Brazil,
+  Country.India,
+  Country.China,
+];

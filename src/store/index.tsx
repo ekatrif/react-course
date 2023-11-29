@@ -5,10 +5,10 @@ import {
   type TypedUseSelectorHook,
 } from 'react-redux';
 import type { PreloadedState } from '@reduxjs/toolkit';
-import mainReducer from './reducers/mainSlice';
+import reactHookFormReducer from './reducers/reactHookFormSlice';
 
 const rootReducer = combineReducers({
-  mainReducer,
+  reactHookFormReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
