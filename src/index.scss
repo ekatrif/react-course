@@ -87,21 +87,23 @@ select {
 label {
   font-weight: bold;
   white-space: nowrap;
-}
-
-p {
-  color: red;
-  margin-top: 5px;
-}
-
-.one-row-baseline {
   display: flex;
   gap: 0.5rem;
   align-items: baseline;
 }
 
-.one-row-center {
+.flex-row {
   display: flex;
   gap: 0.5rem;
-  align-items: center;
+  align-items: baseline;
+}
+
+span {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+p {
+  color: red;
+  margin-top: 5px;
 }

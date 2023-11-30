@@ -1,33 +1,26 @@
 // import { setupListeners } from '@reduxjs/toolkit/query';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IFormState } from './types';
-
-export const initialState: IFormState = {
-  name: '',
-  age: 0,
-  email: '',
-  password: '',
-  confirmPassword: '',
-  gender: '',
-  acceptTC: false,
-  picture: null,
-  country: '',
-};
+import { IState, IFormState } from './types';
 
 export const reactHookForm = createSlice({
   name: 'reactHookForm',
-  initialState,
+  initialState: [] as IState,
   reducers: {
-    setFormData: (state, action: PayloadAction<IFormState>) => {
-      state.name = action.payload.name;
-      state.age = action.payload.age;
-      state.email = action.payload.email;
-      state.password = action.payload.password;
-      state.confirmPassword = action.payload.confirmPassword;
-      state.gender = action.payload.gender;
-      state.acceptTC = action.payload.acceptTC;
-      state.picture = action.payload.picture;
-      state.country = action.payload.country;
+    setFormData: (
+      state,
+      action: PayloadAction<{ data: IFormState; pictureBase64: string }>
+    ) => {
+      state.push({
+        name: action.payload.data.name,
+        age: action.payload.data.age,
+        email: action.payload.data.email,
+        password: action.payload.data.password,
+        confirmPassword: action.payload.data.confirmPassword,
+        gender: action.payload.data.gender,
+        acceptTC: action.payload.data.acceptTC,
+        pictureBase64: action.payload.pictureBase64,
+        country: action.payload.data.country,
+      });
     },
   },
 });

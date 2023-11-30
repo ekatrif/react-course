@@ -42,6 +42,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'eslint-disable-next-line no-param-reassign': 'off',
     'eslint-disable-next-line jsx-a11y/label-has-associated-control': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
   settings: {
     react: {

@@ -1,6 +1,3 @@
-// export type Base64<ImageType extends string> =
-//   `data:image/${ImageType};base64${string}`;
-
 export interface IFormState {
   name: string;
   age: number;
@@ -9,9 +6,11 @@ export interface IFormState {
   confirmPassword: string;
   gender: string;
   acceptTC: boolean;
-  picture: File | null;
+  pictureBase64: string | null;
   country: string;
 }
+
+export type IState = IFormState[];
 
 enum Country {
   UnitedStates = 'United States',
