@@ -49,6 +49,11 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+
+    &:disabled {
+      border: none;
+      cursor: default;
+    }
   }
 }
 
@@ -106,4 +111,68 @@ span {
 p {
   color: red;
   margin-top: 5px;
+}
+
+.forms-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 800px;
+  padding: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+
+  & > div {
+    width: calc(50% - 0.5rem);
+    word-break: break-all;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+  list-style: none;
+}
+
+.item {
+  & li, &-active li {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 90%;
+  }
+
+  &-active {
+    border: 1px solid #535bf2;
+    animation: blink 1s;
+    animation-iteration-count: 3;
+
+    & > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem;
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+
+  & > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+  }
 }

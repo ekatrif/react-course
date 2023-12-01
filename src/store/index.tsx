@@ -5,19 +5,19 @@ import {
   type TypedUseSelectorHook,
 } from 'react-redux';
 import type { PreloadedState } from '@reduxjs/toolkit';
-import reactHookFormReducer from './reducers/reactHookFormSlice';
+import formReducer from './reducers/formSlice';
 
 const rootReducer = combineReducers({
-  reactHookFormReducer,
+  formReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: rootReducer,
-    // middleware: (getDefaultMiddleware) =>
-    //   getDefaultMiddleware({
-    //     serializableCheck: false,
-    //   }).concat(api.middleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+      }),
     preloadedState,
   });
 };

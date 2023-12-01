@@ -8,6 +8,7 @@ export interface IFormState {
   acceptTC: boolean;
   pictureBase64: string | null;
   country: string;
+  formType: FormNames;
 }
 
 export type IState = IFormState[];
@@ -23,6 +24,11 @@ enum Country {
   Brazil = 'Brazil',
   India = 'India',
   China = 'China',
+}
+
+export enum FormNames {
+  hookForm = 'hookForm',
+  simpleForm = 'simpleForm',
 }
 
 export const countries: Country[] = [

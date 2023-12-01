@@ -1,11 +1,18 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import YupPassword from 'yup-password';
-import { setFormData } from '../../store/reducers/reactHookFormSlice';
-import { IFormState, countries } from '../../store/reducers/types';
+import { setFormData } from '../../store/reducers/formSlice';
+import { IFormState, countries, FormNames } from '../../store/reducers/types';
+
+type LastFormType = {
+  state: {
+    formType: FormNames;
+  };
+};
 
 YupPassword(yup);
 
@@ -39,9 +46,8 @@ const schema = yup.object().shape({
     .oneOf([true], 'You must accept the terms and conditions'),
   picture: yup
     .mixed<FileList>()
-    .required('Please upload an image')
     .test('fileExists', 'Upload a file', (file) => {
-      return file && file.length;
+      return !!(file && file.length);
     })
     .test('fileSize', 'File size is too large', (file) => {
       if (file && file.length) {
@@ -59,6 +65,10 @@ const schema = yup.object().shape({
 });
 
 function ReactHookForm() {
+  const formType = FormNames.hookForm;
+
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const {
     register,
@@ -66,13 +76,24 @@ function ReactHookForm() {
     formState: { errors },
   } = useForm({
     mode: 'onChange',
+    reValidateMode: 'onBlur',
     resolver: yupResolver(schema),
   });
+
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    console.log(errors);
+    if (Object.keys(errors).length > 0) {
+      setDisabled(true);
+    }
+  }, [Object.keys(errors).length]);
 
   const [pictureBase64, setPictureBase64] = useState('');
 
   const onSubmit = (data: IFormState) => {
-    dispatch(setFormData({ data, pictureBase64 }));
+    dispatch(setFormData({ data, pictureBase64, formType }));
+    navigate('/', { state: { formType } } as LastFormType);
   };
 
   const handlePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -198,7 +219,9 @@ function ReactHookForm() {
           </label>
           {errors.country && <p>{errors.country.message}</p>}
         </div>
-        <button type="submit">Submit</button>
+        <button disabled={disabled} type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
