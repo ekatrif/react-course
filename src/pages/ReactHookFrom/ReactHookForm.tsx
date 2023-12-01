@@ -2,11 +2,17 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import YupPassword from 'yup-password';
 import { setFormData } from '../../store/reducers/formSlice';
-import { IFormState, countries, FormNames } from '../../store/reducers/types';
+import {
+  IFormState,
+  FormNames,
+  ICountriesState,
+  Country,
+} from '../../store/reducers/types';
+import CustomSelect from '../../components/CustomSelect/CustomSelect';
 
 type LastFormType = {
   state: {
@@ -47,7 +53,10 @@ const schema = yup.object().shape({
   picture: yup
     .mixed<FileList>()
     .test('fileExists', 'Upload a file', (file) => {
-      return !!(file && file.length);
+      if (file && file.length) {
+        return file && file.length !== 0;
+      }
+      return false;
     })
     .test('fileSize', 'File size is too large', (file) => {
       if (file && file.length) {
@@ -65,6 +74,13 @@ const schema = yup.object().shape({
 });
 
 function ReactHookForm() {
+  const country = useSelector(
+    (state: { countriesReducer: ICountriesState }) =>
+      state.countriesReducer.currentCountry
+  );
+
+  console.log(country);
+
   const formType = FormNames.hookForm;
 
   const navigate = useNavigate();
@@ -73,21 +89,12 @@ function ReactHookForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { isDirty, isValid, errors },
   } = useForm({
     mode: 'onChange',
     reValidateMode: 'onBlur',
     resolver: yupResolver(schema),
   });
-
-  const [disabled, setDisabled] = useState(true);
-
-  useEffect(() => {
-    console.log(errors);
-    if (Object.keys(errors).length > 0) {
-      setDisabled(true);
-    }
-  }, [Object.keys(errors).length]);
 
   const [pictureBase64, setPictureBase64] = useState('');
 
@@ -209,17 +216,20 @@ function ReactHookForm() {
         <div>
           <label htmlFor="country">
             Select Country:
-            <select {...register('country')} id="country">
-              {countries.map((country) => (
-                <option key={country} value={country}>
-                  {country}
-                </option>
-              ))}
+            <CustomSelect />
+            <select
+              id="country"
+              {...register('country')}
+              style={{ opacity: '0', width: 0 }}
+            >
+              <option key={country} value={country} selected>
+                {country}
+              </option>
             </select>
           </label>
           {errors.country && <p>{errors.country.message}</p>}
         </div>
-        <button disabled={disabled} type="submit">
+        <button disabled={!isDirty || !isValid} type="submit">
           Submit
         </button>
       </form>

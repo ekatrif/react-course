@@ -40,9 +40,12 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    'eslint-disable-next-line no-param-reassign': 'off',
-    'eslint-disable-next-line jsx-a11y/label-has-associated-control': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'no-param-reassign': 'off',
   },
   settings: {
     react: {

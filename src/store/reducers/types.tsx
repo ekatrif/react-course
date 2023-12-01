@@ -13,7 +13,12 @@ export interface IFormState {
 
 export type IState = IFormState[];
 
-enum Country {
+export type ICountriesState = {
+  countries: Country[];
+  currentCountry: Country;
+};
+
+export enum Country {
   UnitedStates = 'United States',
   Canada = 'Canada',
   UnitedKingdom = 'United Kingdom',
