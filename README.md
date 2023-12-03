@@ -1,8 +1,8 @@
 # RS Scool React course.
 
-**Deploy**: https://ekatrif.github.io/plants/
+**Deploy**: 
 
-**Task**: https://github.com/rolling-scopes-school/tasks/tree/master/react/modules/module01
+**Task**: https://github.com/rolling-scopes-school/tasks/tree/master/react/modules/module06
 
 ## Tech stack:
 
@@ -13,4 +13,3 @@
 - ESLint
 - Prettier
 - Husky
-
