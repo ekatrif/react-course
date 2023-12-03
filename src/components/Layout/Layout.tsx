@@ -16,7 +16,6 @@ function Layout() {
         <NavLink className={classes.nav__link} to="/react-hook-form">
           React Hook Form
         </NavLink>
-
       </header>
       <main className={classes.wrapper}>
         <Outlet />

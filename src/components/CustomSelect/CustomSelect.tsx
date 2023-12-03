@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ICountriesState } from '../../store/reducers/types';
+import { ICountriesState, Country } from '../../store/reducers/types';
 import { setCurrentCountry } from '../../store/reducers/countriesSlice';
+
+type Option = {
+  value: Country;
+  label: Country;
+};
 
 function CustomSelect() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,13 +30,13 @@ function CustomSelect() {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionSelect = (option) => {
-    setSelectedOption(option);
+  const handleOptionSelect = (option: Option) => {
+    setSelectedOption(option.value);
     setIsOpen(false);
     dispatch(setCurrentCountry(option.value));
   };
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 
@@ -44,7 +49,7 @@ function CustomSelect() {
       <div onClick={handleToggle}>
         <input
           type="text"
-          value={selectedOption.label || ''}
+          value={selectedOption || ''}
           readOnly
           placeholder="Select an option"
         />

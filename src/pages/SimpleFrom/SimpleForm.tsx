@@ -1,9 +1,9 @@
-function SimpleForm() {
+function ReactHookForm() {
   return (
-    <div className="">
-      <h1>Simple Form</h1>
+    <div className="container">
+      <h1>React Hook Form</h1>
     </div>
   );
 }
 
-export default SimpleForm;
+export default ReactHookForm;

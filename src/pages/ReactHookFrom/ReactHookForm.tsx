@@ -10,7 +10,6 @@ import {
   IFormState,
   FormNames,
   ICountriesState,
-  Country,
 } from '../../store/reducers/types';
 import CustomSelect from '../../components/CustomSelect/CustomSelect';
 
@@ -78,8 +77,6 @@ function ReactHookForm() {
     (state: { countriesReducer: ICountriesState }) =>
       state.countriesReducer.currentCountry
   );
-
-  console.log(country);
 
   const formType = FormNames.hookForm;
 
